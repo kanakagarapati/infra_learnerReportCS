@@ -1,0 +1,11 @@
+namespace: learner-dev
+frontend: { tag: "dev" }
+backend:  { tag: "dev" }
+ingress:
+  host: "learner-dev.local"
+# Option A: set Mongo here for dev
+backend:
+  secretEnv:
+    MONGODB_URI: "mongodb+srv://<user>:<pass>@<cluster>/<db>?retryWrites=true&w=majority"
+ingress:
+  host: "learner-dev.local"

@@ -1,0 +1,12 @@
+{{- if .Values.networkPolicy.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata: { name: {{ include "lr.name" . }}-np, namespace: {{ include "lr.ns" . }} }
+spec:
+  podSelector: {}
+  policyTypes: ["Ingress","Egress"]
+  ingress:
+    - {}   # allow from same namespace; tighten as needed
+  egress:
+    - {}   # allow all egress; restrict to Atlas IPs in prod
+{{- end }}

@@ -1,0 +1,8 @@
+namespace: learner
+frontend: { tag: "v1.0.0" }   # Jenkins overrides with SHA/tag
+backend:  { tag: "v1.0.0" }
+ingress:
+  host: "learner.example.com"
+  tls:
+    enabled: true
+    secretName: learner-tls
